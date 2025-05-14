@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" role="application">  <!-- Added role for accessibility -->
+        <h1>Bingo Game</h1>
+
+        <section id="bingo-card-section">  <!-- Added semantic section -->
+            <h2>Bingo Card</h2>
+            <div id="bingo-container"></div>
+            <div>
+                <button id="add-card-button">Add Manual Card</button>
+                <button id="upload-card">Upload Bingo Card</button>
+                <input type="file" id="file-input" accept="image/*" style="display: none;" />
+                <button id="scan-card-button">Scan Card</button>
+            </div>
+        </section>
+
+        <section id="game-controls-section"> <!-- Added semantic section -->
+            <h2>Game Mode</h2>
+            <button id="toggle-mode-button">Switch to One Row</button>
+            <p id="game-mode">Current Mode: Full House</p>
+
+            <h2>Called Numbers</h2>
+            <label for="number-input">Enter called number:</label> <!-- Added label for accessibility -->
+            <input type="number" id="number-input" placeholder="Enter called number" aria-describedby="call-number-button"> <!-- Added aria-describedby -->
+            <button id="call-number-button">Call Number</button>
+            <ul id="called-numbers-list" role="list"></ul> <!-- Added role for accessibility -->
+        </section>
+
+        <section id="results-section"> <!-- Added semantic section -->
+            <h2>Results</h2>
+            <ul id="results-list" role="list"></ul> <!-- Added role for accessibility -->
+        </section>
+
+        <button id="reset-button">Reset Game</button>
+
+        <video id="camera" autoplay hidden></video>
+        <canvas id="canvas" hidden></canvas>
+    </div>
+    <script src="libs/tesseract.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Removed unnecessary div#cardContainer -->
+</body>
+</html>
